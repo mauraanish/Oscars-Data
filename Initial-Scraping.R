@@ -293,113 +293,53 @@ table(oscars_data$category)
 # Music (Scoring: Original Song Score and Adaptation -or- Scoring: Adaptation) 
 # 9
 # Music (Song—Original for the Picture)                             Music (Song)
-# 25                                                                215 
-                                                                                                              Outstanding Motion Picture 
-                                                                                                                                      30 
-                                                                                                                     Outstanding Picture 
-                                                                                                                                       8 
-                                                                                                                  Outstanding Production 
-                                                                                                                                     102 
-                                                                                                                       Production Design 
-                                                                                                                                      60 
-                                                                                                                   Short Film (Animated) 
-                                                                                                                                     210 
-                                                                                                       Short Film (Dramatic Live Action) 
-                                                                                                                                       3 
-                                                                                                                Short Film (Live Action) 
-                                                                                                                                     220 
-                                                                                                                Short Subject (Animated) 
-                                                                                                                                       9 
-                                                                                                                 Short Subject (Cartoon) 
-                                                                                                                                     168 
-                                                                                                                   Short Subject (Color) 
-                                                                                                                                       6 
-                                                                                                                  Short Subject (Comedy) 
-                                                                                                                                      12 
-                                                                                                             Short Subject (Live Action) 
-                                                                                                                                      68 
-                                                                                                                 Short Subject (Novelty) 
-                                                                                                                                      12 
-                                                                                                                Short Subject (One-reel) 
-                                                                                                                                      90 
-                                                                                                                Short Subject (Two-reel) 
-                                                                                                                                      81 
-                                                                                                                                   Sound 
-                                                                                                                                     245 
-                                                                                                                           Sound Editing 
-                                                                                                                                      86 
-                                                                                                                           Sound Effects 
-                                                                                                                                      10 
-                                                                                                                   Sound Effects Editing 
-                                                                                                                                      47 
-                                                                                                                            Sound Mixing 
-                                                                                                                                      85 
-                                                                                                                         Sound Recording 
-                                                                                                                                     195 
-                                                                                                               Special Achievement Award 
-                                                                                                                                       3 
-                                                                                               Special Achievement Award (Sound Editing) 
-                                                                                                                                       1 
-                                                                                       Special Achievement Award (Sound Effects Editing) 
-                                                                                                                                       4 
-                                                                                               Special Achievement Award (Sound Effects) 
-                                                                                                                                       1 
-                                                                                              Special Achievement Award (Visual Effects) 
-                                                                                                                                       9 
-                                                                                                                           Special Award 
-                                                                                                                                      20 
-                                                                                                                         Special Effects 
-                                                                                                                                      92 
-                                                                                                     Special Foreign Language Film Award 
-                                                                                                                                       2 
-                                                                                                                  Special Visual Effects 
-                                                                                                                                      16 
-                                                                                                             Unique and Artistic Picture 
-                                                                                                                                       3 
-                                                                                                                          Visual Effects 
-                                                                                                                                     155 
-                                                                                                                                 Writing 
-                                                                                                                                      16 
-                                                                                                                    Writing (Adaptation) 
-                                                                                                                                      17 
-                                                                                                            Writing (Adapted Screenplay) 
-                                                                                                                                     110 
-                                                                                                          Writing (Motion Picture Story) 
-                                                                                                                                      48 
-                                                                                                 Writing (Original Motion Picture Story) 
-                                                                                                                                      25 
-                                                                                                           Writing (Original Screenplay) 
-                                                                                                                                     160 
-                                                                                                                Writing (Original Story) 
-                                                                                                                                      52 
-                                                                                                            Writing (Screenplay—Adapted) 
-                                                                                                                                       5 
-                                                                              Writing (Screenplay—based on material from another medium) 
-                                                                                                                                      95 
-                                                                                                           Writing (Screenplay—Original) 
-                                                                                                                                       5 
-                                                                                        Writing (Screenplay Adapted from Other Material) 
-                                                                                                                                      10 
-                                                                              Writing (Screenplay Based on Material from Another Medium) 
-                                                                                                                                      65 
-                                                                 Writing (Screenplay Based on Material Previously Produced or Published) 
-                                                                                                                                      55 
-Writing (Screenplay Written Directly for the Screen—based on factual material or on story material not previously published or produced) 
-                                                                                                                                      10 
-                                                                                    Writing (Screenplay Written Directly for the Screen) 
-                                                                                                                                     120 
-                                                                                                                    Writing (Screenplay) 
-                                                                                                                                     104 
-                               Writing (Story and Screenplay—based on factual material or material not previously published or produced) 
-                                                                                                                                      20 
-                                                   Writing (Story and Screenplay—based on material not previously published or produced) 
-                                                                                                                                       5 
-                                                                          Writing (Story and Screenplay—written directly for the screen) 
-                                                                                                                                      60 
-                                                                                                          Writing (Story and Screenplay) 
-                                                                                                                                      35 
-                                                                                                                 Writing (Title Writing) 
-                                                                                                                                       3 
+# 25                                                                215
+# Outstanding Motion Picture  Outstanding Picture                   Outstanding Production
+# 30                          8                                     102 
+# Production Design           Short Film (Animated)                 Short Film (Dramatic Live Action)
+# 60                          210                                   3 
+# Short Film (Live Action)    Short Subject (Animated)              Short Subject (Cartoon)
+# 220                         9                                     168 
+# Short Subject (Color)       Short Subject (Comedy)                Short Subject (Live Action)
+# 6                           12                                    68 
+# Short Subject (Novelty)     Short Subject (One-reel)              Short Subject (Two-reel)
+# 12                          90                                    81 
+# Sound                       Sound Editing                         Sound Effects
+# 245                         86                                    10 
+# Sound Effects Editing       Sound Mixing                          Sound Recording
+# 47                          85                                    195 
+# Special Achievement Award   Special Achievement Award (Sound Editing)
+# 3                           1
+# Special Achievement Award (Sound Effects Editing)                 Special Achievement Award (Sound Effects)
+# 4                                                                 1 
+# Special Achievement Award (Visual Effects)                        Special Award
+# 9                                                                 20 
+# Special Effects             Special Foreign Language Film Award   Special Visual Effects
+# 92                          2                                     16 
+# Unique and Artistic Picture Visual Effects                        Writing
+# 3                           155                                   16 
+# Writing (Adaptation)        Writing (Adapted Screenplay)          Writing (Motion Picture Story)
+# 17                          110                                   48 
+# Writing (Original Motion Picture Story)                           Writing (Original Screenplay)
+# 25                                                                160 
+# Writing (Original Story)    Writing (Screenplay—Adapted)          Writing (Screenplay—based on material from another medium)
+# 52                          5                                     95 
+# Writing (Screenplay—Original)                                     Writing (Screenplay Adapted from Other Material)
+# 5                                                                 10 
+# Writing (Screenplay Based on Material from Another Medium)        Writing (Screenplay Based on Material Previously Produced or Published)
+# 65                                                                55 
+# Writing (Screenplay Written Directly for the Screen—based on factual material or on story material not previously published or produced)
+# 10 
+# Writing (Screenplay Written Directly for the Screen)              Writing (Screenplay)
+# 120                                                               104
+# Writing (Story and Screenplay—based on factual material or material not previously published or produced) 
+# 20 
+# Writing (Story and Screenplay—based on material not previously published or produced) 
+# 5 
+# Writing (Story and Screenplay—written directly for the screen)    Writing (Story and Screenplay)
+# 60                                                                35 
+# Writing (Title Writing) 
+# 3 
 
 # standardize category names
 oscars_data <- oscars_data |>
@@ -465,7 +405,29 @@ oscars_data <- oscars_data |>
     category == "Honorary Award" | category == "Special Achievement Award" ~ "Special Award",
     TRUE ~ as.character(category)
   ))
+
+# examine new category names
 table(oscars_data$category)
+# Actor in a Leading Role          Actor in a Supporting Role         Actress in a Leading Role 
+# 476                              440                                479 
+# Actress in a Supporting Role     Animated Feature Film              Animated Short Film 
+# 440                              99                                 392
+# Art Direction                    Assistant Director                 Best Picture 
+# 617                              35                                 604 
+# Cinematography                   Costume Design                     Dance Direction
+# 624                              449                                27
+# Directing                        Documentary Feature Film           Documentary Short Film 
+# 476                              375                                374
+# Film Editing                     International Feature Film         Irving G. Thalberg Memorial Award 
+# 450                              346                                44 
+# Jean Hersholt Humanitarian Award Live Action Short Film             Makeup and Hairstyling
+# 35                               296                                133
+# Music (Original Score)           Music (Original Song)              Short Film
+# 811                              474                                201 
+# Sound                            Special Award                      Visual Effects
+# 674                              29                                 275
+# Writing                          Writing (Adapted Screenplay)       Writing (Original Screenplay)
+# 206                              357                                457 
 
 # save finalized df as csv
 # write_csv(oscars_data, "oscars-data.csv")
