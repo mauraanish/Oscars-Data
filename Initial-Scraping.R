@@ -230,6 +230,7 @@ oscars_data <- tibble(year = years,
 
 # view dimensions and first 5 rows of dataframe
 dim(oscars_data)
+# Output: 10695 x 5
 head(oscars_data)
 # Output:
 # A tibble: 6 × 5
