@@ -1,5 +1,5 @@
 # Oscars-Data
-For my final project for my DACSS 690A: Data Engineering course, taught by Professor Tyler Horan at UMass Amherst, I wanted to re-create and expand upon the functionality of the [Academy Awards Database](https://awardsdatabase.oscars.org/). To do so, I extracted data from the Oscars' website, stored it in a table, and created a Flask app which users can interact with to see information and visualizations about the awards.
+For my final project for my DACSS 690A: Data Engineering course, taught by Dr. Tyler Horan at UMass Amherst, I wanted to re-create and expand upon the functionality of the [Academy Awards Database](https://awardsdatabase.oscars.org/). To do so, I extracted data from the Oscars' website, stored it in a table, and created a Flask app which users can interact with to see information and visualizations about the awards.
 
 ### Files
 This repository contains 5 files:
