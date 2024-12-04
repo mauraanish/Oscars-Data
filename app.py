@@ -7,8 +7,6 @@ import pytest
 # create app
 app = Flask(__name__)
 
-# swagger?
-
 # create SQLite database called awards using SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///awards.db'
 db = SQLAlchemy(app)
