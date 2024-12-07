@@ -119,14 +119,14 @@ ids <- seq(last_id+1, last_id+num_winnoms)
 
 # build dataframe with all info
 new_data <- tibble(id = ids,
-                      year = years,
-                      category = cat_names,
-                      film = film_names,
-                      nominee = nom_names,
-                      won = won01)
+                   year = years,
+                   category = cat_names,
+                   film = film_names,
+                   nominee = nom_names,
+                   won = won01)
 
 # standardize category names
-new_data <- oscars_data |>
+new_data <- new_data |>
   mutate(category = case_when(
     category == "Production Design" ~ "Art Direction",
     category == "Honorary Award" | category == "Special Achievement Award" ~ "Special Award",
