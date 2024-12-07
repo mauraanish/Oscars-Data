@@ -431,4 +431,4 @@ table(oscars_data$category)
 # 206                              357                                457 
 
 # save finalized df as csv
-# write_csv(oscars_data, "oscars-data.csv")
+write_csv(oscars_data, "oscars-data.csv")
