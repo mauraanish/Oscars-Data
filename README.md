@@ -41,6 +41,14 @@ Finally, with the dataframe built, I reduced the number of categories from 115 t
 ### Loading
 The Flask app reads the data stored in oscars-data.csv and loads it into the awards database. Then, it prompts the visitor of the site to enter a year from 1929-2024, an award category, a film, or a nominee's name. Assuming that the entered value corresponds to at least one row in the database, the user will then be able to see information corresponding to their field of interest.
 
+If the user enters a specific year, they will be able to see the list of all winners and nominees of all awards that year.
+
+If the user enters a specific award category, they will be able to see the list of all winners and nominees of that category from every ceremony.
+
+If the user enters a specific film, they will be able to see the list of all categories for which that film won or was nominated.
+
+If the user enters a specific nominee, they will be able to see the list of all awards for which that person won or was nominated.
+
 ### Automation
 The data only needs to be updated once a year, towards the end of March, after each additional Oscars Ceremony. The yearly update code is quite similar to the initial scraping code, except it doesn't require as much storage or adjustment of award category names to reflect the changes over time. The only necessary information from the existing dataframe containing all past years' data is the last ID used, so as to start the ID values for the new rows appropriately. Depending on whether the Academy alters category names, adds new categories, or changes the format in which they store information about each category on their website in the coming years, the yearly update code may need to be modified accordingly. However, assuming that the structure of the data remains the same, the oscars-data.csv will be updated yearly, so the Flask app can continue to pull in the most current data.
 
