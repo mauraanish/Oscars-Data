@@ -1,5 +1,5 @@
 # import necessary libraries
-from flask import Flask
+from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 import pytest
@@ -24,9 +24,8 @@ class Award(db.Model):
 with app.app_context():
   db.create_all()
 
-# route to homepage
-@app.route('/')
-def homepage():
+# load data into awards database
+def load_data():
   # clear database
   db.session.query(Award).delete()
   
@@ -43,16 +42,98 @@ def homepage():
       won = int(row['won'])
     )
     db.session.add(new_award)
-  db.session.commit()  
-  
-  return "It's working!"  
+  db.session.commit()    
+ 
+# route to homepage
+@app.route('/')
+def homepage():
+  load_data()
+  return render_template('prompt.html')
+
+# generate stats for specific year
+def year_stats(user_year):
+  user_year = int(user_year)
+  this_year = db.session.execute(db.select(Award).where(Award.year==user_year)).scalars()
+  return this_year
+
+# generate stats for specific category
+def cat_stats(user_cat):
+  if user_cat == 'Picture':
+    user_cat = 'Best Picture'
+  elif user_cat == 'Actor':
+    user_cat = 'Actor in a Leading Role'
+  elif user_cat == 'Supporting Actor':
+    user_cat = 'Actor in a Supporting Role'
+  elif user_cat == 'Actress':
+    user_cat = 'Actress in a Leading Role'
+  elif user_cat == 'Supporting Actress':
+    user_cat = 'Actress in a Supporting Role'
+  elif user_cat == 'Director':
+    user_cat = 'Directing'
+  elif user_cat == 'Costumes':
+    user_cat = 'Costume Design'
+  elif user_cat == 'Dance':
+    user_cat = 'Dance Direction'
+  elif user_cat == 'Documentary Feature':
+    user_cat = 'Documentary Feature Film'
+  elif user_cat == 'Documentary Short':
+    user_cat = 'Documentary Short Film'
+  elif user_cat == 'Editing':
+    user_cat = 'Film Editing'
+  elif user_cat == 'International Feature':
+    user_cat = 'International Feature Film'
+  elif user_cat == 'Animated Feature':
+    user_cat = 'Animated Feature Film'
+  elif user_cat == 'Animated Short':
+    user_cat = 'Animated Short Film'
+  elif user_cat == 'Live Action Short':
+    user_cat = 'Live Action Short Film'
+  elif user_cat == 'Short':
+    user_cat = 'Short Film'
+  elif user_cat == 'Makeup':
+    user_cat = 'Makeup and Hairstyling'
+  elif user_cat == 'Production Design':
+    user_cat = 'Art Direction'
+  elif user_cat == 'Score':
+    user_cat = 'Music (Original Score)'
+  elif user_cat == 'Song':
+    user_cat = 'Music (Original Song)'
+  elif user_cat == 'Adapted Writing':
+    user_cat = 'Writing (Adapted Screeplay)'
+  elif user_cat == 'Original Writing':
+    user_cat = 'Writing (Original Screenplay)'
+  this_cat = db.session.execute(db.select(Award).where(Award.category==user_cat)).scalars()
+  return this_cat
+
+# generate stats for specific film
+def film_stats(user_film):
+  this_film = db.session.execute(db.select(Award).where(Award.film==user_film)).scalars()
+  return this_film
+
+# generate stats for specific nominee
+def nom_stats(user_nom):
+  this_nom = db.session.execute(db.select(Award).where(Award.nominee.contains(user_nom))).scalars()
+  return this_nom
+
+# route to display results
+@app.route('/display')
+def display():
+  user_year = request.args.get('year_entry', '')
+  user_cat = request.args.get('cat_entry', '')
+  user_film = request.args.get('film_entry', '')
+  user_nom = request.args.get('nom_entry', '')
+  if user_year != 'NA':
+    results = year_stats(user_year)
+  elif user_cat != 'NA':
+    results = cat_stats(user_cat)
+  elif user_film != 'NA':
+    results = film_stats(user_film)
+  elif user_nom != 'NA':
+    results = nom_stats(user_nom)
+  else:
+    return "Please enter information in one of the above fields."
+  return render_template('results.html') #, results  
 
 # run app
 if __name__ == '__main__':
   app.run()
-  
-# unit tests
-#with app.app_context():
-#  def test_query_all_awards(test_client):
-#    awards = Awards.query.all()
-#    assert len(awards) == 10695
