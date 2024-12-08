@@ -2,8 +2,11 @@
 <head><title>Academy Awards Data</title></head>
 <body>
 <h2>Results</h2>
-<p>
-Output.
-</p>
+<ol>
+{% for result in results %}
+<li>{{ result }}</li>
+{% endfor %}
+</ol>
+<a href="{{ url_for('homepage') }}">Return Home</a>
 </body>
 </html>
