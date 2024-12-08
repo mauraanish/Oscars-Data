@@ -53,6 +53,7 @@ def homepage():
 # generate stats for specific year
 def year_stats(user_year):
   user_year = int(user_year)
+  assert user_year >= 1929 and user_year <= 2024
   this_year = db.session.execute(db.select(Award).where(Award.year==user_year)).scalars()
   return this_year
 
@@ -102,16 +103,20 @@ def cat_stats(user_cat):
     user_cat = 'Writing (Adapted Screeplay)'
   elif user_cat == 'Original Writing':
     user_cat = 'Writing (Original Screenplay)'
+  elif user_cat != 'Assistant Director' and user_cat != 'Cinematography' and user_cat != 'Sound' and user_cat != 'Visual Effects' and user_cat != 'Writing' and user_cat != 'Special Award' and user_cat != 'Irving G. Thalberg Memorial Award' and user_cat != 'Jean Hersholt Humanitarian Award':
+    # invalid category entered, throw error
   this_cat = db.session.execute(db.select(Award).where(Award.category==user_cat)).scalars()
   return this_cat
 
 # generate stats for specific film
 def film_stats(user_film):
+  # throw error if invalid film name entered
   this_film = db.session.execute(db.select(Award).where(Award.film==user_film)).scalars()
   return this_film
 
 # generate stats for specific nominee
 def nom_stats(user_nom):
+  # throw error if invalid nominee name entered
   this_nom = db.session.execute(db.select(Award).where(Award.nominee.contains(user_nom))).scalars()
   return this_nom
 
@@ -122,17 +127,17 @@ def display():
   user_cat = request.args.get('cat_entry', '')
   user_film = request.args.get('film_entry', '')
   user_nom = request.args.get('nom_entry', '')
-  if user_year != 'NA':
+  if len(user_year)>0:
     results = year_stats(user_year)
-  elif user_cat != 'NA':
+  elif len(user_cat)>0:
     results = cat_stats(user_cat)
-  elif user_film != 'NA':
+  elif len(user_film)>0:
     results = film_stats(user_film)
-  elif user_nom != 'NA':
+  elif len(user_nom)>0:
     results = nom_stats(user_nom)
   else:
     return "Please enter information in one of the above fields."
-  return render_template('results.html') #, results  
+  return render_template('results.html', results=results)  
 
 # run app
 if __name__ == '__main__':
