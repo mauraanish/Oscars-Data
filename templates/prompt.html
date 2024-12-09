@@ -7,19 +7,46 @@
 Please enter a year, award category, film, or nominee to learn about. Please leave all
 other categories besides the one of interest blank.<br> 
 Year can range from 1929 to 2024.<br>
-Category can be: Picture, Actor, Supporting Actor, Actress, Supporting Actress,
-Director, Assistant Director, Cinematography, Costumes, Dance, Documentary Feature, 
-Documentary Short, Editing, International Feature, Animated Feature, Animated Short, 
-Live Action Short, Short, Makeup, Production Design, Score, Song, Sound, Visual Effects, 
-Writing, Adapted Writing, Original Writing, Special Award, Irving G. Thalberg Memorial Award,
-or Jean Hersholt Humanitarian Award.<br>
+Category can be any of the 30 specific values in the dropdown menu, or 'All,' if no preference.<br>
 Film can be the exact title of any nominated film. Titles should include special characters.
 Non-English film titles may be in English or in their original language.<br>
 Nominee can be the exact name of any nominated individual formatted as: FirstName LastName.
 </p>
 <form action="/display">
 Year: <input type='text' name='year_entry'><br>
-Category: <input type='text' name='cat_entry'><br>
+Category: <select name='cat_entry'>
+<option value=''>All</option>
+<option value='Best Picture'>Best Picture</option>
+<option value='Actor in a Leading Role'>Actor</option>
+<option value='Actress in a Leading Role'>Actress</option>
+<option value='Actor in a Supporting Role'>Supporting Actor</option>
+<option value='Actress in a Supporting Role'>Supporting Actress</option>
+<option value='Animated Feature Film'>Animated Film</option>
+<option value='Animated Short Film'>Animated Short</option>
+<option value='Cinematography'>Cinematography</option>
+<option value='Costume Design'>Costume Design</option>
+<option value='Directing'>Director</option>
+<option value='Documentary Feature Film'>Documentary Film</option>
+<option value='Documentary Short Film'>Documentary Short</option>
+<option value='Film Editing'>Editing</option>
+<option value='International Feature Film'>International Film</option>
+<option value='Live Action Short Film'>Live Action Short</option>
+<option value='Makeup and Hairstyling'>Makeup</option>
+<option value='Music (Original Score)'>Music (Score)</option>
+<option value='Music (Original Song)'>Music (Song)</option>
+<option value='Art Direction'>Production Design</option>
+<option value='Short Film'>Short (Misc.)</option>
+<option value='Sound'>Sound</option>
+<option value='Visual Effects'>Visual Effects</option>
+<option value='Writing (Adapted Screenplay)'>Writing (Adapted)</option>
+<option value='Writing (Original Screenplay)'>Writing (Original)</option>
+<option value='Writing'>Writing (Misc.)</option>
+<option value='Assistant Director'>Assistant Director</option>
+<option value='Dance Direction'>Dance Direction</option>
+<option value='Irving G. Thalberg Memorial Award'>Irving G. Thalberg Memorial Award</option>
+<option value='Jean Hersholt Humanitarian Award'>Jean Hersholt Humanitarian Award</option>
+<option value='Special Award'>Special Award</option>
+</select><br>
 Film: <input type='text' name='film_entry'><br>
 Nominee: <input type='text' name='nom_entry'><br>
 <input type='submit' value='Continue'>
