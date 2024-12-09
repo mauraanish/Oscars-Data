@@ -59,52 +59,6 @@ def year_stats(user_year):
 
 # generate stats for specific category
 def cat_stats(user_cat):
-  if user_cat == 'Picture':
-    user_cat = 'Best Picture'
-  elif user_cat == 'Actor':
-    user_cat = 'Actor in a Leading Role'
-  elif user_cat == 'Supporting Actor':
-    user_cat = 'Actor in a Supporting Role'
-  elif user_cat == 'Actress':
-    user_cat = 'Actress in a Leading Role'
-  elif user_cat == 'Supporting Actress':
-    user_cat = 'Actress in a Supporting Role'
-  elif user_cat == 'Director':
-    user_cat = 'Directing'
-  elif user_cat == 'Costumes':
-    user_cat = 'Costume Design'
-  elif user_cat == 'Dance':
-    user_cat = 'Dance Direction'
-  elif user_cat == 'Documentary Feature':
-    user_cat = 'Documentary Feature Film'
-  elif user_cat == 'Documentary Short':
-    user_cat = 'Documentary Short Film'
-  elif user_cat == 'Editing':
-    user_cat = 'Film Editing'
-  elif user_cat == 'International Feature':
-    user_cat = 'International Feature Film'
-  elif user_cat == 'Animated Feature':
-    user_cat = 'Animated Feature Film'
-  elif user_cat == 'Animated Short':
-    user_cat = 'Animated Short Film'
-  elif user_cat == 'Live Action Short':
-    user_cat = 'Live Action Short Film'
-  elif user_cat == 'Short':
-    user_cat = 'Short Film'
-  elif user_cat == 'Makeup':
-    user_cat = 'Makeup and Hairstyling'
-  elif user_cat == 'Production Design':
-    user_cat = 'Art Direction'
-  elif user_cat == 'Score':
-    user_cat = 'Music (Original Score)'
-  elif user_cat == 'Song':
-    user_cat = 'Music (Original Song)'
-  elif user_cat == 'Adapted Writing':
-    user_cat = 'Writing (Adapted Screeplay)'
-  elif user_cat == 'Original Writing':
-    user_cat = 'Writing (Original Screenplay)'
-  elif user_cat != 'Assistant Director' and user_cat != 'Cinematography' and user_cat != 'Sound' and user_cat != 'Visual Effects' and user_cat != 'Writing' and user_cat != 'Special Award' and user_cat != 'Irving G. Thalberg Memorial Award' and user_cat != 'Jean Hersholt Humanitarian Award':
-    # invalid category entered, throw error
   this_cat = db.session.execute(db.select(Award).where(Award.category==user_cat)).scalars()
   return this_cat
 
