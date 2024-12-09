@@ -4,7 +4,11 @@
 <h2>Results</h2>
 <ol>
 {% for result in results %}
-<li>{{ result }}</li>
+{% if result.won == 1 %}
+<li>{{ result.year }}: {{ result.nominee }} won {{ result.category }} for {{ result.film }}.</li>
+{% else %}
+<li>{{ result.year }}: {{ result.nominee }} nominated for {{ result.category }} for {{ result.film }}.</li>
+{% endif %}
 {% endfor %}
 </ol>
 <a href="{{ url_for('homepage') }}">Return Home</a>
