@@ -3,7 +3,6 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 import pandas as pd
-import pytest
 
 # create app
 app = Flask(__name__)
@@ -65,7 +64,6 @@ def cat_stats(user_cat):
 
 # generate stats for specific film
 def film_stats(user_film):
-  # throw error if invalid film name entered
   this_film = db.session.execute(db.select(Award.year, Award.category, Award.film, Award.nominee, Award.won).where(Award.film==user_film))
   # calculate number of awards the film won and lost
   wonlost = [0, 0]
@@ -75,7 +73,6 @@ def film_stats(user_film):
 
 # generate stats for specific nominee
 def nom_stats(user_nom):
-  # throw error if invalid nominee name entered
   this_nom = db.session.execute(db.select(Award.year, Award.category, Award.film, Award.nominee, Award.won).where(Award.nominee.contains(user_nom)))
   # calculate number of awards the nominee won and lost
   wonlost = [0, 0]
