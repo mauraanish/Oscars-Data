@@ -10,7 +10,7 @@ This repository contains 10 files:
 - awards.db: the database containing the transformed data, built using SQLAlchemy in the Flask app
 - prompt.html: an HTML template used in the Flask app to get a user's input
 - results.html: an HTML template used in the Flask app to return a list of information a user wants to see
-- results_graph.html: an HTML template used in the Flask app to return a list and a graph if a user chooses a specific film or nominee
+- results_graph.html: an HTML template used in the Flask app to return a list and a graph if a user chooses a film or nominee
 - Yearly-Update-Scraping.R: the R code used to scrape a new ceremony's data from the Oscars website
 - prefect-update.py: the Python code used to run the R script to scrape the new data once a year
 
