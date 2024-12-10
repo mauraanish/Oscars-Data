@@ -1,0 +1,27 @@
+<html>
+<head><title>Academy Awards Data</title></head>
+<body>
+<h2>Results</h2>
+<ol>
+{% for result in results %}
+{% if result.won == 1 %}
+<li>{{ result.year }}: {{ result.nominee }} won {{ result.category }} for {{ result.film }}.</li>
+{% else %}
+<li>{{ result.year }}: {{ result.nominee }} nominated for {{ result.category }} for {{ result.film }}.</li>
+{% endif %}
+{% endfor %}
+</ol>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div style='height: 50vh; width: 30vw;'><canvas id='myChart'></canvas></div>
+<script>
+new Chart(document.getElementById('myChart'),
+{type: 'pie', 
+ data: {labels:['Won', 'Lost'], 
+        datasets:[{data: {{ data | tojson }} }]}
+});
+</script>
+
+<a href="{{ url_for('homepage') }}">Return Home</a>
+</body>
+</html>
