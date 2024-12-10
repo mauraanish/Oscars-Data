@@ -1,6 +1,7 @@
 # import necessary libraries
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 import pandas as pd
 import pytest
 
@@ -54,25 +55,33 @@ def homepage():
 def year_stats(user_year):
   user_year = int(user_year)
   assert user_year >= 1929 and user_year <= 2024
-  this_year = db.session.execute(db.select(Award).where(Award.year==user_year)).scalars()
+  this_year = db.session.execute(db.select(Award.year, Award.category, Award.film, Award.nominee, Award.won).where(Award.year==user_year))
   return this_year
 
 # generate stats for specific category
 def cat_stats(user_cat):
-  this_cat = db.session.execute(db.select(Award).where(Award.category==user_cat)).scalars()
+  this_cat = db.session.execute(db.select(Award.year, Award.category, Award.film, Award.nominee, Award.won).where(Award.category==user_cat))
   return this_cat
 
 # generate stats for specific film
 def film_stats(user_film):
   # throw error if invalid film name entered
-  this_film = db.session.execute(db.select(Award).where(Award.film==user_film)).scalars()
-  return this_film
+  this_film = db.session.execute(db.select(Award.year, Award.category, Award.film, Award.nominee, Award.won).where(Award.film==user_film))
+  # calculate number of awards the film won and lost
+  wonlost = [0, 0]
+  wonlost[0] = db.session.execute(db.select(func.count('*')).where(Award.film==user_film).where(Award.won==1)).scalar()
+  wonlost[1] = db.session.execute(db.select(func.count('*')).where(Award.film==user_film).where(Award.won==0)).scalar()
+  return this_film, wonlost
 
 # generate stats for specific nominee
 def nom_stats(user_nom):
   # throw error if invalid nominee name entered
-  this_nom = db.session.execute(db.select(Award).where(Award.nominee.contains(user_nom))).scalars()
-  return this_nom
+  this_nom = db.session.execute(db.select(Award.year, Award.category, Award.film, Award.nominee, Award.won).where(Award.nominee.contains(user_nom)))
+  # calculate number of awards the nominee won and lost
+  wonlost = [0, 0]
+  wonlost[0] = db.session.execute(db.select(func.count('*')).where(Award.nominee.contains(user_nom)).where(Award.won==1)).scalar()
+  wonlost[1] = db.session.execute(db.select(func.count('*')).where(Award.nominee.contains(user_nom)).where(Award.won==0)).scalar()
+  return this_nom, wonlost
 
 # route to display results
 @app.route('/display')
@@ -83,15 +92,18 @@ def display():
   user_nom = request.args.get('nom_entry', '')
   if len(user_year)>0:
     results = year_stats(user_year)
+    return render_template('results.html', results=results) 
   elif len(user_cat)>0:
     results = cat_stats(user_cat)
+    return render_template('results.html', results=results) 
   elif len(user_film)>0:
-    results = film_stats(user_film)
+    results, wonlost = film_stats(user_film)
+    return render_template('results_graph.html', results=results, data=wonlost) 
   elif len(user_nom)>0:
-    results = nom_stats(user_nom)
+    results, wonlost = nom_stats(user_nom)
+    return render_template('results_graph.html', results=results, data=wonlost) 
   else:
-    return "Please enter information in one of the above fields."
-  return render_template('results.html', results=results)  
+    return "Please enter information in one of the above fields."  
 
 # run app
 if __name__ == '__main__':
