@@ -53,6 +53,8 @@ If the user enters a specific film, they will be able to see the list of all cat
 
 If the user enters a specific nominee, they will be able to see the list of all awards for which that person won or was nominated, in chronological order. The user will also see a pie chart with the percentage of awards that the person won in blue and the percentage of awards that the person lost in red.
 
+I attempted to deploy this project using Render.com, at [https://oscars-data.onrender.com](https://oscars-data.onrender.com), but I was ultimately unable to do so.
+
 ### Automation
 The data only needs to be updated once a year, towards the end of March, after each additional Oscars Ceremony. The yearly update code is quite similar to the initial scraping code, except it doesn't require as much storage or adjustment of award category names to reflect the changes over time. The only necessary information from the existing dataframe containing all past years' data is the last ID used, so as to start the ID values for the new rows appropriately. Depending on whether the Academy alters category names, adds new categories, or changes the format in which they store information about each category on their website in the coming years, the yearly update code may need to be modified accordingly. However, assuming that the structure of the data remains the same, the oscars-data.csv will be updated yearly, so the Flask app can continue to pull in the most current data.
 
