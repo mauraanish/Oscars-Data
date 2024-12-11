@@ -2,4 +2,5 @@ Flask==3.0.3
 Flask-SQLAlchemy==3.1.1
 SQLAlchemy==2.0.35
 pandas==2.2.3
+gunicorn==22.0.0
 prefect==3.0.0
