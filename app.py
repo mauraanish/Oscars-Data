@@ -6,6 +6,8 @@ import pandas as pd
 
 # create app
 app = Flask(__name__)
+app.config['HOST'] = '0.0.0.0'
+app.config['PORT'] = '10000'
 
 # create SQLite database called awards using SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///awards.db'
